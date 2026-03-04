@@ -61,8 +61,8 @@ const questions = [
   {
     id: "future_self",
     icon: "✉",
-    label: "Your message to your future self",
-    placeholder: "e.g. Keep going, you are stronger than you think...",
+    label: "How do you want to feel in the future?",
+    placeholder: "e.g. Confident, free, peaceful, successful and loved...",
     color: "#F4A261",
   },
 ];
