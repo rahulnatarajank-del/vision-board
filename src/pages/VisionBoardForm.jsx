@@ -189,11 +189,8 @@ export default function VisionBoardForm({ user, onLogout, onAttemptsUpdate }) {
             Remaining attempts: <strong style={{ color: "#E8608A" }}>{generatedBoard?.attempts_remaining ?? remainingAttempts}</strong>
           </p>
 
-          {/* 3x3 Grid */}
+          {/* Vision Board Image */}
           <div id="vision-board-grid" style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(3, 1fr)",
-            gap: "12px",
             maxWidth: "780px",
             margin: "0 auto 40px",
             background: "#fff",
@@ -201,27 +198,15 @@ export default function VisionBoardForm({ user, onLogout, onAttemptsUpdate }) {
             borderRadius: "24px",
             boxShadow: "0 8px 40px rgba(232,96,138,0.12)",
           }}>
-            {generatedBoard.image_urls.map((url, index) => (
-              <div key={index} style={{
-                borderRadius: "12px", overflow: "hidden",
-                border: "1.5px solid #fde8f0",
-                background: "#fff8f5",
-              }}>
-                <img
-                  src={url}
-                  alt={questions[index]?.label}
-                  style={{ width: "100%", aspectRatio: "1", objectFit: "cover", display: "block" }}
-                  onError={(e) => { e.target.src = "https://via.placeholder.com/512x512?text=Loading..."; }}
-                />
-                <div style={{
-                  padding: "8px 10px", fontSize: "11px",
-                  color: "#b09090", textAlign: "center",
-                  fontFamily: "'Nunito', sans-serif", fontWeight: 600,
-                }}>
-                  {questions[index]?.label}
-                </div>
-              </div>
-            ))}
+            <img
+              src={generatedBoard.image_urls[0]}
+              alt={generatedBoard.title}
+              style={{
+                width: "100%",
+                borderRadius: "16px",
+                display: "block",
+              }}
+            />
           </div>
 
           {/* Buttons */}
@@ -398,42 +383,42 @@ export default function VisionBoardForm({ user, onLogout, onAttemptsUpdate }) {
 
       {/* Submit */}
       <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", width: "100%", padding: "0 40px 40px" }}>
-      {remainingAttempts > 0 ? (
-        <>
-          <button
-            style={{
-              ...styles.submitBtn,
-              opacity: filledCount === questions.length ? 1 : 0.5,
-              cursor: filledCount === questions.length ? "pointer" : "not-allowed",
-            }}
-            onClick={handleSubmit}
-            disabled={filledCount !== questions.length}
-          >
-            🌸 Generate My Vision Board 🌸
-          </button>
-          <p style={styles.submitNote}>
-            This will use 1 of your {remainingAttempts} remaining attempts
-          </p>
-        </>
-      ) : (
-        <div style={{
-          background: "#fff5f8",
-          border: "1px solid #ffd6e4",
-          borderRadius: "16px",
-          padding: "24px 32px",
-          textAlign: "center",
-          maxWidth: "400px",
-          margin: "0 auto",
-        }}>
-          <p style={{ fontSize: "32px", marginBottom: "12px" }}>🌸</p>
-          <p style={{ color: "#E8608A", fontWeight: 700, fontSize: "16px", marginBottom: "8px" }}>
-            All attempts completed!
-          </p>
-          <p style={{ color: "#b09090", fontSize: "13px", lineHeight: 1.6 }}>
-            You have used all 5 of your attempts. Thank you for participating in our Women's Day Vision Board! 🌺
-          </p>
-        </div>
-      )}
+        {remainingAttempts > 0 ? (
+          <>
+            <button
+              style={{
+                ...styles.submitBtn,
+                opacity: filledCount === questions.length ? 1 : 0.5,
+                cursor: filledCount === questions.length ? "pointer" : "not-allowed",
+              }}
+              onClick={handleSubmit}
+              disabled={filledCount !== questions.length}
+            >
+              🌸 Generate My Vision Board 🌸
+            </button>
+            <p style={styles.submitNote}>
+              This will use 1 of your {remainingAttempts} remaining attempts
+            </p>
+          </>
+        ) : (
+          <div style={{
+            background: "#fff5f8",
+            border: "1px solid #ffd6e4",
+            borderRadius: "16px",
+            padding: "24px 32px",
+            textAlign: "center",
+            maxWidth: "400px",
+            margin: "0 auto",
+          }}>
+            <p style={{ fontSize: "32px", marginBottom: "12px" }}>🌸</p>
+            <p style={{ color: "#E8608A", fontWeight: 700, fontSize: "16px", marginBottom: "8px" }}>
+              All attempts completed!
+            </p>
+            <p style={{ color: "#b09090", fontSize: "13px", lineHeight: 1.6 }}>
+              You have used all 5 of your attempts. Thank you for participating in our Women's Day Vision Board! 🌺
+            </p>
+          </div>
+        )}
       </div>
     </div >
   );
