@@ -84,7 +84,7 @@ export default function VisionBoardForm({ user, onLogout, onAttemptsUpdate }) {
   }, []);
 
   const userName = user?.name?.split(" ")[0] || "You";
-  const remainingAttempts = user?.attempts_remaining ?? 5;
+  const remainingAttempts = user?.attempts_remaining ?? 3;
 
   const handleChange = (id, value) => {
     setFormData((prev) => ({ ...prev, [id]: value }));
