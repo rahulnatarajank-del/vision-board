@@ -146,7 +146,7 @@ export default function LoginPage({ onLogin }) {
 
           {/* Footer note */}
           <p style={styles.footerNote}>
-            Don't have an account? Contact your administrator.
+            Don't have an account? Contact Rahul.
           </p>
 
           {/* Decorative bottom */}
