@@ -397,6 +397,7 @@ export default function VisionBoardForm({ user, onLogout, onAttemptsUpdate }) {
       </div>
 
       {/* Submit */}
+      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", width: "100%", padding: "0 40px 40px" }}>
       {remainingAttempts > 0 ? (
         <>
           <button
@@ -433,6 +434,7 @@ export default function VisionBoardForm({ user, onLogout, onAttemptsUpdate }) {
           </p>
         </div>
       )}
+      </div>
     </div >
   );
 }
