@@ -301,7 +301,7 @@ export default function VisionBoardForm({ user, onLogout, onAttemptsUpdate }) {
           <div style={styles.attemptsNumber}>{remainingAttempts}</div>
           <div style={styles.attemptsLabel}>Attempts<br />Remaining</div>
           <div style={styles.attemptsBar}>
-            {[...Array(5)].map((_, i) => (
+            {[...Array(3)].map((_, i) => (
               <div
                 key={i}
                 style={{
@@ -415,7 +415,7 @@ export default function VisionBoardForm({ user, onLogout, onAttemptsUpdate }) {
               All attempts completed!
             </p>
             <p style={{ color: "#b09090", fontSize: "13px", lineHeight: 1.6 }}>
-              You have used all 5 of your attempts. Thank you for participating in our Women's Day Vision Board! 🌺
+              You have used all 3 of your attempts. Thank you for participating in our Women's Day Vision Board! 🌺
             </p>
           </div>
         )}
