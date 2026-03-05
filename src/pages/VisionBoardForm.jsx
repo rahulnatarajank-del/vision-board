@@ -201,10 +201,12 @@ export default function VisionBoardForm({ user, onLogout, onAttemptsUpdate }) {
             <img
               src={generatedBoard.image_urls[0]}
               alt={generatedBoard.title}
+              crossOrigin="anonymous"
               style={{
                 width: "100%",
                 borderRadius: "16px",
                 display: "block",
+                boxShadow: "0 10px 30px rgba(0,0,0,0.1)",
               }}
             />
           </div>
